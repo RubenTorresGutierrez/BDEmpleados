@@ -5,7 +5,7 @@
 
     if (isset($_POST['enviar'])){
         if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
-            $empleado = new Empleado($_POST['dni'], $_POST['nombre'], $_POST['correo']), $_POST['telf']));
+            $empleado = new Empleado($_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
             $empleado->anadirEmpleado();
         }
     }
