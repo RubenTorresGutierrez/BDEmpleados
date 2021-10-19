@@ -1,0 +1,42 @@
+/* Rubén Torres */
+
+/***** FORMULARIO *****/
+form{
+    max-width: 1280px;
+    margin: 40px auto;
+    background-color: rgb(68, 68, 68);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form > div{
+    width: 30%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: white;
+}
+
+/* BOTONES */
+#botones{
+    justify-content: right;
+}
+
+#botones > input{
+    margin: 5px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(29, 29, 29);
+    cursor: pointer;
+}
+
+#botones > input[type="submit"]:hover{
+    background-color: rgb(34, 189, 20);
+}
+
+#botones > input[type="reset"]:hover{
+    background-color: rgb(206, 31, 31);
+}

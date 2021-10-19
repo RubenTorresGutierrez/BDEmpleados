@@ -1,12 +1,13 @@
 <?php
 
     //IMPORTACIONES
-    require_once 'empleado.php';
+    require_once 'clases/empleado.php';
+    require_once 'elementoshtml.php';
 
     if (isset($_POST['enviar'])){
         if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
-            $empleado = new Empleado($_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
-            $empleado->anadirEmpleado();
+            $empleado = new Empleado();
+            $empleado->anadirEmpleado($_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
         }
     }
 
@@ -14,29 +15,51 @@
 
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="author" content="rtorresgutierrez.guadalupe@alumnado.fundacionloyola.net" />
-        <title>BDEmpleados</title>
-    </head>
-    <body>
+    <?php
+
+        //Variables
+        $titulo = 'Añadir | BDEmpleados';
+        $css = 'index';
+
+        cabeceraPrincipal($titulo, $css);
+
+    ?>
+	<body>
+        <?php
+
+            //Variables
+            $pagina = 'index';
+
+            barraNavegacion($pagina);
+
+        ?>
         <!-- FORMULARIO DE ALTA A EMPLEADO -->
         <form action="index.php" method="post">
             <!-- DNI -->
-            <label for="dni">DNI: </label>
-            <input type="text" name="dni" required /><br /><br />
+            <div>
+                <label for="dni">DNI: </label>
+                <input type="text" name="dni" required />
+            </div>
             <!-- NOMBRE -->
-            <label for="nombre">Nombre: </label>
-            <input type="text" name="nombre" required /><br /><br />
+            <div>
+                <label for="nombre">Nombre: </label>
+                <input type="text" name="nombre" required />
+            </div>
             <!-- CORREO -->
-            <label for="correo">Correo: </label>
-            <input type="text" name="correo" /><br /><br />
+            <div>
+                <label for="correo">Correo: </label>
+                <input type="text" name="correo" />
+            </div>
             <!-- TELÉFONO -->
-            <label for="telf">Teléfono: </label>
-            <input type="text" name="telf" required /><br /><br />
+            <div>
+                <label for="telf">Teléfono: </label>
+                <input type="text" name="telf" required />
+            </div>
             <!-- BOTONES -->
-            <input type="submit" name="enviar" value="ENVIAR" />
-            <input type="reset" name="cancelar" value="CANCELAR" />
+            <div id="botones">
+                <input type="submit" name="enviar" value="ENVIAR" />
+                <input type="reset" name="cancelar" value="CANCELAR" />
+            </div>
         </form>
     </body>
 </html>

@@ -1,0 +1,26 @@
+/* Rubén Torres */
+
+/***** TABLE *****/
+table{
+    background-color: rgb(223, 223, 223);
+    margin: 40px auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table tr:nth-child(2n){
+    background-color: rgb(185, 185, 185);
+}
+
+table tr{
+    border-bottom: 2px solid rgb(131, 131, 131);
+}
+
+table tr > th,
+table tr > td{
+    padding: 15px 40px;
+}
+
+.iconos{
+    width: 40px;
+}

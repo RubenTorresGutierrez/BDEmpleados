@@ -1,0 +1,35 @@
+/* Rubén Torres */
+
+/*** ASIGNACIONES GLOBALES ***/
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Arial';
+}
+
+body{
+    background-color: rgb(29, 29, 29);
+}
+
+/***** CABECERA *****/
+nav{
+    margin: 0 auto;
+    background-color: rgb(41, 41, 41);
+    overflow: hidden;
+}
+
+nav li{
+    float: left;
+}
+
+nav li > a{
+    display: block;
+    padding: 15px;
+    color: white;
+}
+
+nav li > a:hover{
+    background-color: rgb(56, 56, 56);
+}
