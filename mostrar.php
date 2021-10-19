@@ -47,8 +47,8 @@
                                 '<td>' . $fila['nombre'] . '</td>'.
                                 '<td>' . $fila['correo'] . '</td>'.
                                 '<td>' . $fila['telefono'] . '</td>'.
-                                '<td><a href=""><img src="img/icons/modificar.png" alt="Modificar Empleado" class="iconos" /></a></td>'.
-                                '<td><a href=""><img src="img/icons/borrar.png" alt="Borrar Empleado" class="iconos" /></a></td>'.
+                                '<td><a href="modificar.php?id='.$fila['idEmpleado'].'"><img src="img/icons/modificar.png" alt="Modificar Empleado" class="iconos" /></a></td>'.
+                                '<td><a href="borrar.php?id='.$fila['idEmpleado'].'"><img src="img/icons/borrar.png" alt="Borrar Empleado" class="iconos" /></a></td>'.
                             '</tr>';
                     }
                 }

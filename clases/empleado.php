@@ -36,6 +36,15 @@
 
         }
 
+        function borrarEmpleado($id){
+
+            //Consulta SQL para añadir una fila nueva a la tabla empleado
+            $sql = 'DELETE FROM empleado WHERE idEmpleado = '.$id.';';
+            //Mandar la consulta a la Base de Datos
+            $this->conexion->query($sql);
+
+        }
+
         function cerrarConexion(){
             $this->conexion->close();
         }

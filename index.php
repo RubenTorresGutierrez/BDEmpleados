@@ -4,12 +4,11 @@
     require_once 'clases/empleado.php';
     require_once 'elementoshtml.php';
 
-    if (isset($_POST['enviar'])){
+    if (isset($_POST['enviar']))
         if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
             $empleado = new Empleado();
             $empleado->anadirEmpleado($_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
         }
-    }
 
 ?>
 
@@ -63,24 +62,3 @@
         </form>
     </body>
 </html>
-    <?php
-
-        // if (isset($_POST['enviar'])){
-        //     if (!empty($_POST['nombre'])) {
-        //         $sql = "SELECT * FROM alumno WHERE Nombre LIKE '%" . implode(' ', array_filter(explode(' ', $_POST['nombre']))) . "%';";
-        //         $resultado = $mysqli -> query($sql);
-        //         if ($resultado -> num_rows > 0) {
-        //             while ($fila = $resultado -> fetch_array()) {
-        //                 echo $fila['NumAlumno'] . ': ';
-        //                 echo $fila['Nombre'] . ' | ';
-        //                 if ($fila['Repite'] == 0)
-        //                     echo 'El alumno NO repite.';
-        //                 else echo 'El alumno repite';
-        //                 echo '<br />';
-        //             }
-        //         }else echo 'No se han encontrado resultados';
-        //     }else echo 'El campo está vacío.';
-        // }
-        // $mysqli -> close();
-
-    ?>
