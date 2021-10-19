@@ -26,15 +26,16 @@
 
     ?>
 	<body>
-        <section>
-            <form action="borrar.php" method="post">
-                <label for="">¿Desea eliminar al<br />empleado seleccionado?</label>
-                <?php
-                    echo '<input type="hidden" name="id" value="'.$_GET['id'].'" />';
-                ?>
+        <form action="borrar.php" method="post">
+            <legend>¡ATENCIÓN!</legend>
+            <label for="">¿Desea eliminar al<br />empleado seleccionado?</label>
+            <?php
+                echo '<input type="hidden" name="id" value="'.$_GET['id'].'" />';
+            ?>
+            <div id="botones">
                 <input type="submit" name="aceptar" value="Aceptar" />
                 <input type="submit" name="cancelar" value="Cancelar" />
-            </form>
-        </section>
+            </div>
+        </form>
     </body>
 </html>

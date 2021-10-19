@@ -1,5 +1,45 @@
 /* Rubén Torres */
 
-section{
-    
+/***** FORM *****/
+form{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 300px;
+    height: 150px;
+    background-color: rgb(68, 68, 68);
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+form > legend{
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+#botones{
+    display: flex;
+    justify-content: right;
+    padding: 20px 0 0 0;
+}
+
+#botones > input{
+    margin: 5px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(29, 29, 29);
+    cursor: pointer;
+}
+
+#botones > input:first-child:hover{
+    background-color: rgb(223, 146, 23);
+}
+
+#botones > input:last-child:hover{
+    background-color: rgb(31, 92, 206);
 }
