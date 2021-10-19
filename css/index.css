@@ -2,7 +2,7 @@
 
 /***** FORMULARIO *****/
 form{
-    max-width: 1280px;
+    width: 450px;
     margin: 40px auto;
     background-color: rgb(68, 68, 68);
     padding: 40px;
@@ -12,7 +12,7 @@ form{
 }
 
 form > div{
-    width: 30%;
+    width: 70%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -33,10 +33,10 @@ form > div{
     cursor: pointer;
 }
 
-#botones > input[type="submit"]:hover{
+#botones > input:first-child:hover{
     background-color: rgb(34, 189, 20);
 }
 
-#botones > input[type="reset"]:hover{
+#botones > input:last-child:hover{
     background-color: rgb(206, 31, 31);
 }
