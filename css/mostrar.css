@@ -24,3 +24,70 @@ table tr > td{
 .iconos{
     width: 40px;
 }
+
+/***** BUSCAR *****/
+form{
+    max-width: 450px;
+    margin: 20px auto;
+    display: flex;
+    position: relative;
+}
+
+form > div:first-child{
+    background-color: rgb(97, 97, 97);
+    padding-right: 30px;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+form > div > select{
+    background-color: rgb(97, 97, 97);
+    color: white;
+    height: 100%;
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+form > div:last-child{
+    display: flex;
+    position: relative;
+    background-color: white;
+    width: 100%;
+    padding: 5px 10px;
+    margin-left: 100px;
+    border-radius: 20px;
+    border: 3px solid rgb(97, 97, 97);
+    z-index: 1;
+}
+
+form > div > img{
+    width: 25px;
+}
+
+form > div > input[type=text]{
+    outline: none;
+    border: none;
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+form > div > input[type=submit]{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;    
+    border-radius: 20px;
+    padding: 0 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+form > div > input[type=submit]:hover{
+    background-color: rgb(105, 255, 92);
+}

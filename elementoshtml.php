@@ -18,7 +18,7 @@
         $elementos = array(
         array('index', 'AÑADIR'),
         array('mostrar', 'MOSTRAR'),
-        array('consultar', 'CONSULTAR')
+        array('buscar', 'BUSCAR')
         );
 
         echo '<nav>'.
