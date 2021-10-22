@@ -4,11 +4,8 @@
     require_once 'clases/empleado.php';
     require_once 'elementoshtml.php';
 
-    if (isset($_POST['enviar']))
-        if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
-            $empleado = new Empleado();
-            $empleado->anadirEmpleado($_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
-        }
+    $empleado = new Empleado();
+    $resultado = $empleado->mostrarEmpleados();
 
 ?>
 
@@ -17,48 +14,60 @@
     <?php
 
         //Variables
-        $titulo = 'Añadir | BDEmpleados';
+        $titulo = 'Mostrar | BDEmpleados';
         $css = 'index';
 
         cabeceraPrincipal($titulo, $css);
 
     ?>
 	<body>
-        <?php
+        <header>
+            <h1>HEADER</h1>
+        </header>
+        <nav>
+            <h1>NAV</h1>
+        </nav>
+        <main>
+            <?php
 
-            //Variables
-            $pagina = 'index';
+                //Variables
+                $pagina = 'index';
 
-            barraNavegacion($pagina);
+                barraLateral($pagina);
 
-        ?>
-        <!-- FORMULARIO DE ALTA A EMPLEADO -->
-        <form action="index.php" method="post">
-            <!-- DNI -->
-            <div>
-                <label for="dni">DNI: </label>
-                <input type="text" name="dni" required />
-            </div>
-            <!-- NOMBRE -->
-            <div>
-                <label for="nombre">Nombre: </label>
-                <input type="text" name="nombre" required />
-            </div>
-            <!-- CORREO -->
-            <div>
-                <label for="correo">Correo: </label>
-                <input type="text" name="correo" />
-            </div>
-            <!-- TELÉFONO -->
-            <div>
-                <label for="telf">Teléfono: </label>
-                <input type="text" name="telf" required />
-            </div>
-            <!-- BOTONES -->
-            <div id="botones">
-                <input type="submit" name="enviar" value="ENVIAR" />
-                <input type="reset" name="cancelar" value="CANCELAR" />
-            </div>
-        </form>
+            ?>
+            <section>
+                <h1>MOSTRAR</h1>
+                <table>
+                    <tr>
+                        <th>DNI</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Teléfono</th>
+                        <th>Modificar</th>
+                        <th>Borrar</th>
+                    </tr>
+                    <?php
+
+                        if ($resultado->num_rows > 0) {
+                            while ($fila = $resultado->fetch_array()) {
+                                echo '<tr>'.
+                                        '<td>' . $fila['dni'] . '</td>'.
+                                        '<td>' . $fila['nombre'] . '</td>'.
+                                        '<td>' . $fila['correo'] . '</td>'.
+                                        '<td>' . $fila['telefono'] . '</td>'.
+                                        '<td><a href="modificar.php?id='.$fila['idEmpleado'].'"><img src="img/icons/modificar.png" alt="Modificar Empleado" class="iconos" /></a></td>'.
+                                        '<td><a href="borrar.php?id='.$fila['idEmpleado'].'"><img src="img/icons/borrar.png" alt="Borrar Empleado" class="iconos" /></a></td>'.
+                                    '</tr>';
+                            }
+                        }
+
+                    ?>
+                </table>
+            </section>
+        </main>
+        <footer>
+            <h1>FOOTER</h1>
+        </footer>
     </body>
 </html>

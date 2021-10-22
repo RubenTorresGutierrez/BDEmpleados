@@ -10,26 +10,62 @@
 }
 
 body{
-    background-color: rgb(29, 29, 29);
+    width: 1200px;
+    min-height: 747px;
+    margin: auto;
 }
 
-/***** CABECERA *****/
+h1{
+    text-align: center;
+    color: white;
+}
+
+/***** LAYOUT *****/
+header{
+    width: 1200px;
+    min-height: 70px;
+    background-color: rgb(41, 41, 41); 
+}
+
 nav{
-    margin: 0 auto;
-    background-color: rgb(41, 41, 41);
+    width: 1200px;
+    min-height: 70px;  
+    background-color: rgb(26, 26, 26); 
+}
+
+main{
     overflow: hidden;
 }
 
-nav li{
+/*** ASIDE ***/
+aside{
+    width: 185px;
+    min-height: 420px;  
+    padding: 60px 5px 40px 10px;
+    background-color: rgb(41, 41, 41);
     float: left;
 }
 
-nav li > a{
+aside li > a{
     display: block;
     padding: 15px;
     color: white;
 }
 
-nav li > a:hover{
+aside li > a:hover{
     background-color: rgb(56, 56, 56);
+}
+
+section{
+    width: 900px;
+    min-height: 420px;  
+    padding: 60px 50px 40px;   
+    background-color: rgb(65, 65, 65);
+    float: left;
+}
+
+footer{
+    width: 1200px;
+    min-height: 87px;   
+    background-color: rgb(26, 26, 26);   
 }

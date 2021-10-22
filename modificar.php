@@ -17,7 +17,7 @@
             if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
                 $empleado->modificarEmpleado($_POST['id'], $_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
             }
-        header("Location:mostrar.php");
+        header("Location:index.php");
     }
 
 ?>
@@ -28,58 +28,72 @@
 
         //Variables
         $titulo = 'Modificar | BDEmpleados';
-        $css = 'index';
+        $css = 'alta';
 
         cabeceraPrincipal($titulo, $css);
 
     ?>
 	<body>
-        <?php
-
-            //Variables
-            $pagina = 'modificar';
-
-            barraNavegacion($pagina);
-
-        ?>
-        <!-- FORMULARIO DE ALTA A EMPLEADO -->
-        <form action="modificar.php" method="post">
-            <!-- DNI -->
-            <div>
-                <label for="dni">DNI: </label>
-                <?php
-                    echo '<input type="text" name="dni" required value="'.$fila['dni'].'" />';
-                ?>
-            </div>
-            <!-- NOMBRE -->
-            <div>
-                <label for="nombre">Nombre: </label>
-                <?php
-                    echo '<input type="text" name="nombre" required value="'.$fila['nombre'].'" />';
-                ?>
-            </div>
-            <!-- CORREO -->
-            <div>
-                <label for="correo">Correo: </label>
-                <?php
-                    echo '<input type="text" name="correo" value="'.$fila['correo'].'" />';
-                ?>
-            </div>
-            <!-- TELÉFONO -->
-            <div>
-                <label for="telf">Teléfono: </label>
-                <?php
-                    echo '<input type="text" name="telf" required value="'.$fila['telefono'].'" />';
-                ?>
-            </div>
+        <header>
+            <h1>HEADER</h1>
+        </header>
+        <nav>
+            <h1>NAV</h1>
+        </nav>
+        <main>
             <?php
-                echo '<input type="hidden" name="id" value="'.$_GET['id'].'" />';
+
+                //Variables
+                $pagina = 'modificar';
+
+                barraLateral($pagina);
+
             ?>
-            <!-- BOTONES -->
-            <div id="botones">
-                <input type="submit" name="enviar" value="ACTUALIZAR" />
-                <input type="submit" name="cancelar" value="CANCELAR" />
-            </div>
-        </form>
+            <section>
+                <h1>MODIFICAR</h1>
+                <!-- FORMULARIO MODIFICACIÓN EMPLEADO -->
+                <form action="modificar.php" method="post">
+                    <!-- DNI -->
+                    <div>
+                        <label for="dni">DNI: </label>
+                        <?php
+                            echo '<input type="text" name="dni" required value="'.$fila['dni'].'" />';
+                        ?>
+                    </div>
+                    <!-- NOMBRE -->
+                    <div>
+                        <label for="nombre">Nombre: </label>
+                        <?php
+                            echo '<input type="text" name="nombre" required value="'.$fila['nombre'].'" />';
+                        ?>
+                    </div>
+                    <!-- CORREO -->
+                    <div>
+                        <label for="correo">Correo: </label>
+                        <?php
+                            echo '<input type="text" name="correo" value="'.$fila['correo'].'" />';
+                        ?>
+                    </div>
+                    <!-- TELÉFONO -->
+                    <div>
+                        <label for="telf">Teléfono: </label>
+                        <?php
+                            echo '<input type="text" name="telf" required value="'.$fila['telefono'].'" />';
+                        ?>
+                    </div>
+                    <?php
+                        echo '<input type="hidden" name="id" value="'.$_GET['id'].'" />';
+                    ?>
+                    <!-- BOTONES -->
+                    <div id="botones">
+                        <input type="submit" name="enviar" value="ACTUALIZAR" />
+                        <input type="submit" name="cancelar" value="CANCELAR" />
+                    </div>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <h1>FOOTER</h1>
+        </footer>
     </body>
 </html>

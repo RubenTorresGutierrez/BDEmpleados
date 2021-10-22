@@ -1,42 +1,99 @@
 /* Rubén Torres */
 
-/***** FORMULARIO *****/
-form{
-    width: 450px;
+/***** TABLE *****/
+table{
+    width: 700px;
     margin: 40px auto;
-    background-color: rgb(68, 68, 68);
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: rgb(223, 223, 223);
 }
 
-form > div{
-    width: 70%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+table tr:first-child{
+    background-color: rgb(42, 42, 42);
     color: white;
 }
 
-/* BOTONES */
-#botones{
-    justify-content: right;
+table tr:nth-child(2n){
+    background-color: rgb(185, 185, 185);
 }
 
-#botones > input{
-    margin: 5px;
-    padding: 10px;
+table tr{
+    border-bottom: 2px solid rgb(131, 131, 131);
+}
+
+table tr > th,
+table tr > td{
+    padding: 15px 10px;
+}
+
+.iconos{
+    width: 40px;
+}
+
+/***** BUSCAR *****/
+form{
+    max-width: 450px;
+    margin: 20px auto;
+    display: flex;
+    position: relative;
+}
+
+form > div:first-child{
+    background-color: rgb(97, 97, 97);
+    padding-right: 30px;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+form > div > select{
+    background-color: rgb(97, 97, 97);
     color: white;
-    background-color: rgb(29, 29, 29);
+    height: 100%;
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+form > div:last-child{
+    display: flex;
+    position: relative;
+    background-color: white;
+    width: 100%;
+    padding: 5px 10px;
+    margin-left: 100px;
+    border-radius: 20px;
+    border: 3px solid rgb(97, 97, 97);
+    z-index: 1;
+}
+
+form > div > img{
+    width: 25px;
+}
+
+form > div > input[type=text]{
+    outline: none;
+    border: none;
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+form > div > input[type=submit]{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;    
+    border-radius: 20px;
+    padding: 0 10px;
+    outline: none;
+    border: none;
     cursor: pointer;
 }
 
-#botones > input:first-child:hover{
-    background-color: rgb(34, 189, 20);
-}
-
-#botones > input:last-child:hover{
-    background-color: rgb(206, 31, 31);
+form > div > input[type=submit]:hover{
+    background-color: rgb(105, 255, 92);
 }

@@ -11,17 +11,17 @@
             '</head>';
     }
 
-    /*** NAVBAR ***/
-    function barraNavegacion($pagina){
+    /*** ASIDE ***/
+    function barraLateral($pagina){
 
         //Variables
         $elementos = array(
-        array('index', 'AÑADIR'),
-        array('mostrar', 'MOSTRAR'),
+        array('index', 'MOSTRAR'),
+        array('alta', 'AÑADIR'),
         array('buscar', 'BUSCAR')
         );
 
-        echo '<nav>'.
+        echo '<aside>'.
                 '<ul>';
                     foreach ($elementos as $elemento){
                         if($elemento == $pagina){
@@ -40,7 +40,7 @@
                         }
                     }
                 echo '</ul>'.
-            '</nav>';
+            '</aside>';
     }
 
 ?>
