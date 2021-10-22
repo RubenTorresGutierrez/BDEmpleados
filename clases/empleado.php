@@ -17,10 +17,14 @@
 
         }
 
-        function anadirEmpleado($dni, $nombre, $correo, $telefono){
+        function anadirEmpleado($dni, $nombre, $correo=NULL, $telefono){
 
             //Consulta SQL para añadir una fila nueva a la tabla empleado
-            $sql =  'INSERT INTO empleado(dni, nombre, correo, telefono)'.
+            if($correo == 'NULL')   
+                $sql =  'INSERT INTO empleado(dni, nombre, correo, telefono)'.
+                        "VALUES('".$dni."', '".$nombre."', NULL, '".$telefono."');";
+            else                
+                $sql =  'INSERT INTO empleado(dni, nombre, correo, telefono)'.
                     "VALUES('".$dni."', '".$nombre."', '".$correo."', '".$telefono."');";
             //Mandar la consulta a la Base de Datos
             $this->conexion->query($sql);

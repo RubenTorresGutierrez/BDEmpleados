@@ -6,8 +6,8 @@
                 '<meta charset="utf-8" />'.
                 '<meta name="author" content="rtorresgutierrez.guadalupe@alumnado.fundacionloyola.net" />'.
                 '<title>'.$titulo.'</title>'.
-                '<link rel="stylesheet" href="CSS/style.css" type="text/css" />'.
-                '<link rel="stylesheet" href="CSS/'.$css.'.css" type="text/css" />'.
+                '<link rel="stylesheet" href="css/style.css" type="text/css" />'.
+                '<link rel="stylesheet" href="css/'.$css.'.css" type="text/css" />'.
             '</head>';
     }
 
