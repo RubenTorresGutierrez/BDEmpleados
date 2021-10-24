@@ -4,10 +4,19 @@
     require_once 'clases/empleado.php';
     require_once 'elementoshtml.php';
 
+    //Se envian los datos al método
     if (isset($_POST['enviar']))
         if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
             $empleado = new Empleado();
-            $empleado->anadirEmpleado($_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
+            $resultado = $empleado->anadirEmpleado($_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
+            
+            //Cerrar conexión
+            $empleado->cerrarConexion();
+
+            //Enviar a página de correcto o error, depende el resultado
+            if($resultado)
+                header('location:correcto.php');
+            else header('location:error.php');
         }
 
 ?>

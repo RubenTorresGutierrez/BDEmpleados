@@ -5,10 +5,15 @@
     require_once 'elementoshtml.php';
 
     if(isset($_POST['aceptar']) || isset($_POST['cancelar'])){
+        //Si se pulsa en aceptar se borra la fila con el id indicado
         if(isset($_POST['aceptar'])){
             $empleado = new Empleado();
             $empleado->borrarEmpleado($_POST['id']);
         }
+
+        //Cerrar conexión
+        $empleado->cerrarConexion();
+
         header("Location:index.php");
     }
 

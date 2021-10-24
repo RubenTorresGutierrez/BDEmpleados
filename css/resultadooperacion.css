@@ -1,0 +1,29 @@
+/* Rubén Torres */
+
+section{
+    display: flex;
+    flex-direction: column;
+}
+
+img{
+    width: 300px;
+    margin: auto;
+}
+
+section > a{
+    display: block;
+    margin: 30px auto 0;
+    padding: 5px 0;
+    border-bottom: 2px solid rgb(128, 128, 128);
+    color: rgb(128, 128, 128);
+}
+
+#correcto:hover{
+    border-bottom-color: #B0FF48;
+    color: #B0FF48;
+}
+
+#error:hover{
+    border-bottom-color: #DA2727;
+    color: #DA2727;
+}

@@ -10,6 +10,8 @@
             $empleado = new Empleado();
             $resultado = $empleado->buscarEmpleados($_POST['campo'], $_POST['dato']);
 
+            //Si se encuentran resultados, se crean tantas filas en la tabla HTML
+            //como filas en la tabla de la base de datos hayan coincidido con la búsqueda
             if ($resultado->num_rows > 0) {
                 while ($fila = $resultado->fetch_array()) {
                     echo '<tr>'.
@@ -23,6 +25,9 @@
                 }
             }
         }
+
+        //Cerrar conexión
+        $empleado->cerrarConexion();
 
     }
 

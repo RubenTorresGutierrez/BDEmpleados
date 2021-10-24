@@ -35,6 +35,7 @@ nav{
 
 main{
     overflow: hidden;
+    background-color: rgb(65, 65, 65);
 }
 
 /*** ASIDE ***/
@@ -59,8 +60,7 @@ aside li > a:hover{
 section{
     width: 900px;
     min-height: 420px;  
-    padding: 60px 50px 40px;   
-    background-color: rgb(65, 65, 65);
+    padding: 40px 50px 60px;   
     float: left;
 }
 

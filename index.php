@@ -7,6 +7,9 @@
     $empleado = new Empleado();
     $resultado = $empleado->mostrarEmpleados();
 
+    //Cerrar conexión
+    $empleado->cerrarConexion();
+
 ?>
 
 <!DOCTYPE html>

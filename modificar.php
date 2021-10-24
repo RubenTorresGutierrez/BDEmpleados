@@ -15,9 +15,16 @@
         //Se envian los datos modificados al método
         if(isset($_POST['enviar']))
             if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
-                $empleado->modificarEmpleado($_POST['id'], $_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
+                $resultado = $empleado->modificarEmpleado($_POST['id'], $_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
+                
+                //Cerrar conexión
+                $empleado->cerrarConexion();
+
+                //Enviar a página de correcto o error, depende el resultado
+                if($resultado)
+                    header('location:correcto.php');
+                else header('location:error.php');
             }
-        header("Location:index.php");
     }
 
 ?>

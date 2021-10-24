@@ -17,17 +17,23 @@
 
         }
 
-        function anadirEmpleado($dni, $nombre, $correo=NULL, $telefono){
+        function anadirEmpleado($dni, $nombre, $correo, $telefono){
 
+            //Validar si correo viene vacío
+            if($correo != '')
+                $correo = '\''.$correo.'\'';
+            else
+                $correo = 'NULL';
+            
             //Consulta SQL para añadir una fila nueva a la tabla empleado
-            if($correo == 'NULL')   
-                $sql =  'INSERT INTO empleado(dni, nombre, correo, telefono)'.
-                        "VALUES('".$dni."', '".$nombre."', NULL, '".$telefono."');";
-            else                
-                $sql =  'INSERT INTO empleado(dni, nombre, correo, telefono)'.
-                    "VALUES('".$dni."', '".$nombre."', '".$correo."', '".$telefono."');";
+            $sql =  "INSERT INTO empleado(dni, nombre, correo, telefono)".
+                "VALUES('".$dni."', '".$nombre."', ".$correo.", '".$telefono."');";
+            
             //Mandar la consulta a la Base de Datos
-            $this->conexion->query($sql);
+            $resultado = $this->conexion->query($sql);
+            if($resultado)
+                return true;
+            return false;
 
         }
 
@@ -35,6 +41,7 @@
             
             //Consulta SQL para devolver una fila de la tabla empleado
             $sql = 'SELECT * FROM empleado WHERE idEmpleado = '.$id.';';
+
             //Mandar la consulta a la Base de Datos
             return $this->conexion->query($sql);
 
@@ -44,6 +51,7 @@
 
             //Consulta SQL para devolver todas las filas de la tabla empleado
             $sql = 'SELECT * FROM empleado;';
+
             //Mandar la consulta a la Base de Datos
             return $this->conexion->query($sql);
 
@@ -53,6 +61,7 @@
 
             //Consulta SQL para borrar una fila de la tabla empleado
             $sql = 'DELETE FROM empleado WHERE idEmpleado = '.$id.';';
+
             //Mandar la consulta a la Base de Datos
             $this->conexion->query($sql);
 
@@ -60,10 +69,21 @@
 
         function modificarEmpleado($id, $dni, $nombre, $correo, $telefono){
 
+            //Validar si correo viene vacío
+            if($correo != '')
+                $correo = '"'.$correo.'"';
+            else
+                $correo = 'NULL';
+            
             //Consulta SQL para modificar una fila de la tabla empleado
-            $sql = 'UPDATE empleado SET dni = "'.$dni.'", nombre = "'.$nombre.'", correo = "'.$correo.'", telefono = "'.$telefono.'" WHERE idEmpleado = '.$id.';';
+            $sql = "UPDATE empleado SET dni = '".$dni."', nombre = '".$nombre."', ".
+            "correo = ".$correo.", telefono = '".$telefono."' WHERE idEmpleado = ".$id.";";
+
             //Mandar la consulta a la Base de Datos
-            $this->conexion->query($sql);
+            $resultado = $this->conexion->query($sql);
+            if($resultado)
+                return true;
+            return false;
 
         }
 
@@ -71,6 +91,7 @@
 
             //Consulta SQL para devolver las filas que contengan un dato parecido en el campo seleccionado
             $sql = 'SELECT * FROM empleado WHERE '.$campo.' LIKE "%'.$dato.'%";';
+            
             //Mandar la consulta a la Base de Datos
             return $this->conexion->query($sql);
 
