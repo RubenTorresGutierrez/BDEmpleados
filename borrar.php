@@ -8,7 +8,12 @@
         //Si se pulsa en aceptar se borra la fila con el id indicado
         if(isset($_POST['aceptar'])){
             $empleado = new Empleado();
-            $empleado->borrarEmpleado($_POST['id']);
+
+            //Consulta SQL para borrar una fila de la tabla empleado
+            $sql = 'DELETE FROM empleado WHERE idEmpleado = '.$_POST['id'].';';
+
+            //Mandar la consulta a la Base de Datos
+            $empleado->consultar($sql);
         }
 
         //Cerrar conexión

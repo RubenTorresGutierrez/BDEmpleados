@@ -8,6 +8,13 @@
 
         if(isset($_POST['buscar'])){
             $empleado = new Empleado();
+
+            //Consulta SQL para devolver las filas que contengan un dato parecido en el campo seleccionado
+            $sql = 'SELECT * FROM empleado WHERE '.$_POST['campo'].' LIKE "%'.$_POST['dato'].'%";';
+            
+            //Mandar la consulta a la Base de Datos
+            return $this->conexion->query($sql);
+
             $resultado = $empleado->buscarEmpleados($_POST['campo'], $_POST['dato']);
 
             //Si se encuentran resultados, se crean tantas filas en la tabla HTML

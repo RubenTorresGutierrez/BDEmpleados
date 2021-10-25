@@ -17,23 +17,9 @@
 
         }
 
-        function anadirEmpleado($dni, $nombre, $correo, $telefono){
+        function consultar($sql){
 
-            //Validar si correo viene vacío
-            if($correo != '')
-                $correo = '\''.$correo.'\'';
-            else
-                $correo = 'NULL';
-            
-            //Consulta SQL para añadir una fila nueva a la tabla empleado
-            $sql =  "INSERT INTO empleado(dni, nombre, correo, telefono)".
-                "VALUES('".$dni."', '".$nombre."', ".$correo.", '".$telefono."');";
-            
-            //Mandar la consulta a la Base de Datos
-            $resultado = $this->conexion->query($sql);
-            if($resultado)
-                return true;
-            return false;
+            return $resultado = $this->conexion->query($sql);
 
         }
 
@@ -54,16 +40,6 @@
 
             //Mandar la consulta a la Base de Datos
             return $this->conexion->query($sql);
-
-        }
-
-        function borrarEmpleado($id){
-
-            //Consulta SQL para borrar una fila de la tabla empleado
-            $sql = 'DELETE FROM empleado WHERE idEmpleado = '.$id.';';
-
-            //Mandar la consulta a la Base de Datos
-            $this->conexion->query($sql);
 
         }
 
