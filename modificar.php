@@ -17,9 +17,6 @@
             if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
                 $resultado = $empleado->modificarEmpleado($_POST['id'], $_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
                 
-                //Cerrar conexión
-                $empleado->cerrarConexion();
-
                 //Enviar a página de correcto o error, depende el resultado
                 if($resultado)
                     header('location:correcto.php');

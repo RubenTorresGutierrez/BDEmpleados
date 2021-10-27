@@ -1,5 +1,10 @@
 /* Rubén Torres */
 
+section{
+    display: flex;
+    flex-direction: column;
+}
+
 /***** TABLE *****/
 table{
     width: 700px;
@@ -29,6 +34,26 @@ table tr > td{
 
 .iconos{
     width: 40px;
+}
+
+/**** AÑADIR EMPLEADO ****/
+section > a{
+    width: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+section > a > img{
+    width: 40px;
+    margin: 0 10px 0 0;
+    float: left;
+}
+
+section > a > h3{
+    margin: 10px 0 0;
+    float: left;
+    color: white;
 }
 
 /***** BUSCAR *****/

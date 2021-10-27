@@ -1,35 +1,61 @@
 <?php
 
     //IMPORTACIONES
-    require_once 'config/configdb.php';
+    require_once 'gestionbd.php';
 
-    class Empleado{
+    class Empleado extends GestionBD{
 
         //ATRIBUTOS
-        private $conexion;
+        private $bd = null;
 
         function __construct(){
 
-            //OBJETOS
-            // Se instancia un objeto desde la clase mysqli con los datos 
-            // de conexión importados en forma de constantes desde configdb.php
-            $this->conexion = new mysqli(SERVIDOR, USUARIO, PASSWD, DATABASE);
+            $this->bd = new GestionBD();
 
         }
 
-        function consultar($sql){
-
-            return $resultado = $this->conexion->query($sql);
-
-        }
-
-        function mostrarEmpleado($id){
+        function altaEmpleado($dni, $nombre, $correo, $telefono){
             
-            //Consulta SQL para devolver una fila de la tabla empleado
-            $sql = 'SELECT * FROM empleado WHERE idEmpleado = '.$id.';';
+            //$bd = new GestionBD();
 
+            //Validar si correo viene vacío
+            if($correo != '')
+                $correo = '\''.$correo.'\'';
+            else
+                $correo = 'NULL';
+            
+            //Consulta SQL para añadir una fila nueva a la tabla empleado
+            $sql =  "INSERT INTO empleado(dni, nombre, correo, telefono) ".
+                "VALUES('".$dni."', '".$nombre."', ".$correo.", '".$telefono."');";
+
+            //Mandar la consulta a la Clase GestionBD
+            return $resultado = $this->bd->consultar($sql);
+
+            //Cerrar conexión
+            //$this->bd->cerrarConexion();
+
+        }
+
+        function borrarEmpleado($id){
+
+            //Consulta SQL para borrar una fila de la tabla empleado
+            $sql = 'DELETE FROM empleado WHERE idEmpleado = '.$id.';';
+            
             //Mandar la consulta a la Base de Datos
-            return $this->conexion->query($sql);
+            return $this->bd->consultar($sql);
+
+        }
+
+        function buscarEmpleado($campo, $dato){
+
+            //Consulta SQL para devolver las filas que contengan un dato parecido en el campo seleccionado
+            $sql = 'SELECT * FROM empleado WHERE '.$campo.' LIKE "%'.$dato.'%";';
+
+            //Cerrar conexión
+            //$this->bd->cerrarConexion();
+                 
+            //Mandar la consulta a la Clase GestionBD
+            return $this->bd->consultar($sql);
 
         }
 
@@ -39,7 +65,17 @@
             $sql = 'SELECT * FROM empleado;';
 
             //Mandar la consulta a la Base de Datos
-            return $this->conexion->query($sql);
+            return $this->bd->consultar($sql);
+
+        }
+
+        function mostrarEmpleado($id){
+            
+            //Consulta SQL para devolver una fila de la tabla empleado
+            $sql = 'SELECT * FROM empleado WHERE idEmpleado = '.$id.';';
+
+            //Mandar la consulta a la Base de Datos
+            return $this->bd->consultar($sql);
 
         }
 
@@ -56,26 +92,10 @@
             "correo = ".$correo.", telefono = '".$telefono."' WHERE idEmpleado = ".$id.";";
 
             //Mandar la consulta a la Base de Datos
-            $resultado = $this->conexion->query($sql);
-            if($resultado)
-                return true;
-            return false;
+            return $resultado = $this->bd->consultar($sql);
 
         }
 
-        function buscarEmpleados($campo, $dato){
-
-            //Consulta SQL para devolver las filas que contengan un dato parecido en el campo seleccionado
-            $sql = 'SELECT * FROM empleado WHERE '.$campo.' LIKE "%'.$dato.'%";';
-            
-            //Mandar la consulta a la Base de Datos
-            return $this->conexion->query($sql);
-
-        }
-
-        function cerrarConexion(){
-            $this->conexion->close();
-        }
     }
 
 ?>

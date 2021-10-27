@@ -8,22 +8,12 @@
     if (isset($_POST['enviar']))
         if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
             $empleado = new Empleado();
-
-            //Validar si correo viene vacío
-            if($_POST['correo'] != '')
-                $_POST['correo'] = '\''.$_POST['correo'].'\'';
-            else
-                $_POST['correo'] = 'NULL';
-            
-            //Consulta SQL para añadir una fila nueva a la tabla empleado
-            $sql =  "INSERT INTO empleado(dni, nombre, correo, telefono)".
-                "VALUES('".$_POST['dni']."', '".$_POST['nombre']."', ".$_POST['correo'].", '".$_POST['telf']."');";
             
             //Mandar la consulta a la Base de Datos
-            $resultado = $empleado->consultar($sql);        
-            
-            //Cerrar conexión
-            $empleado->cerrarConexion();
+            $resultado = $empleado->altaEmpleado($_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
+
+            //PRUEBAS
+            //var_dump($resultado);
 
             //Enviar a página de correcto o error, depende el resultado
             if($resultado)

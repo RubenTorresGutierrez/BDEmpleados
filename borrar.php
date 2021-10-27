@@ -9,17 +9,14 @@
         if(isset($_POST['aceptar'])){
             $empleado = new Empleado();
 
-            //Consulta SQL para borrar una fila de la tabla empleado
-            $sql = 'DELETE FROM empleado WHERE idEmpleado = '.$_POST['id'].';';
-
             //Mandar la consulta a la Base de Datos
-            $empleado->consultar($sql);
+            $resultado = $empleado->borrarEmpleado($_POST['id']);
+            if($resultado)
+                header('location:correcto.php');
+            else header('location:error.php');
         }
-
-        //Cerrar conexión
-        $empleado->cerrarConexion();
-
-        header("Location:index.php");
+        if(isset($_POST['cancelar']))
+            header("location:index.php");
     }
 
 ?>
