@@ -1,6 +1,7 @@
 <?php
 
     switch($_GET['op']){
+        
         case 'a':
             header('location:alta.php');
             break;

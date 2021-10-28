@@ -11,16 +11,16 @@ table{
     margin: 40px auto;
     border-collapse: collapse;
     text-align: center;
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(241, 241, 241);
 }
 
 table tr:first-child{
-    background-color: rgb(42, 42, 42);
+    background-color: #2e3440;
     color: white;
 }
 
 table tr:nth-child(2n){
-    background-color: rgb(185, 185, 185);
+    background-color: #b5bbc5;
 }
 
 table tr{
@@ -34,14 +34,23 @@ table tr > td{
 
 .iconos{
     width: 40px;
+    transition: ease-in 200ms;
+}
+
+.iconos:hover{
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.8));
+    transition: ease-in 200ms;
 }
 
 /**** AÑADIR EMPLEADO ****/
 section > a{
-    width: auto;
     margin: 0 auto;
-    overflow: hidden;
-    text-align: center;
+    transition: ease-in 200ms;
+}
+
+section > a:hover{
+    filter: drop-shadow(5px 5px 5px #222);
+    transition: ease-in 150ms;
 }
 
 section > a > img{
@@ -65,9 +74,9 @@ form{
 }
 
 form > div:first-child{
-    background-color: rgb(97, 97, 97);
+    background-color: #2e3440;
     padding-right: 30px;
-    border-radius: 20px;
+    border-radius: 10px;
     position: absolute;
     left: 0;
     top: 0;
@@ -75,12 +84,12 @@ form > div:first-child{
 }
 
 form > div > select{
-    background-color: rgb(97, 97, 97);
+    background-color: #2e3440;
     color: white;
     height: 100%;
     padding: 10px;
     margin: 0 10px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
 }
 
@@ -91,8 +100,8 @@ form > div:last-child{
     width: 100%;
     padding: 5px 10px;
     margin-left: 100px;
-    border-radius: 20px;
-    border: 3px solid rgb(97, 97, 97);
+    border-radius: 10px;
+    border: 3px solid #2e3440;
     z-index: 1;
 }
 
@@ -112,7 +121,7 @@ form > div > input[type=submit]{
     top: 0;
     right: 0;
     bottom: 0;    
-    border-radius: 20px;
+    border-radius: 7px;
     padding: 0 10px;
     outline: none;
     border: none;
@@ -120,5 +129,5 @@ form > div > input[type=submit]{
 }
 
 form > div > input[type=submit]:hover{
-    background-color: rgb(105, 255, 92);
+    background-color: #adc0e9;
 }

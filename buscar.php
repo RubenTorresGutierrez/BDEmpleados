@@ -14,6 +14,15 @@
             
             //Si se encuentran resultados, se crean tantas filas en la tabla HTML
             //como filas en la tabla de la base de datos hayan coincidido con la búsqueda
+            echo '<table>'.
+                    '<tr>'.
+                        '<th>DNI</th>'.
+                        '<th>Nombre</th>'.
+                        '<th>Correo</th>'.
+                        '<th>Teléfono</th>'.
+                        '<th>Modificar</th>'.
+                        '<th>Borrar</th>'.
+                    '</tr>';
             if ($resultado->num_rows > 0) {
                 while ($fila = $resultado->fetch_array()) {
                     echo '<tr>'.
@@ -32,6 +41,7 @@
                         '</td>'.
                     '</tr>';
             }
+            echo '</table>';
         }
 
     }
@@ -84,25 +94,11 @@
                     </div>
                 </form>
                 <!-- TABLA -->
-                <table>
-                    <tr>
-                        <th>DNI</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Teléfono</th>
-                        <th>Modificar</th>
-                        <th>Borrar</th>
-                    </tr>
-                    <?php
+                <?php
 
-                        buscar();
+                    buscar();
 
-                    ?>
-                </table>
-                <a href="decision.php?op=a">
-                    <img src="img/icons/add.png" alt="Añadir" />
-                    <h3>Añadir empleados</h3>
-                </a>
+                ?>
             </section>
         </main>
         <footer>

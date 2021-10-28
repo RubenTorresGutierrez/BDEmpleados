@@ -14,8 +14,8 @@ section > a{
     display: block;
     margin: 30px auto 0;
     padding: 5px 0;
-    border-bottom: 2px solid rgb(128, 128, 128);
-    color: rgb(128, 128, 128);
+    border-bottom: 2px solid #b3b8c4;
+    color: #b3b8c4;
 }
 
 #correcto:hover{

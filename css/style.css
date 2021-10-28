@@ -25,18 +25,19 @@ h1{
 header{
     width: 1200px;
     min-height: 70px;
-    background-color: rgb(41, 41, 41); 
+    background-color: #3b4252; 
 }
 
 nav{
     width: 1200px;
-    min-height: 70px;  
-    background-color: rgb(26, 26, 26); 
+    min-height: 70px;
+    border-radius: 20px;  
+    background-color: #2e3440; 
 }
 
 main{
     overflow: hidden;
-    background-color: rgb(65, 65, 65);
+    background-color: #434c5e;
 }
 
 /*** ASIDE ***/
@@ -44,7 +45,7 @@ aside{
     width: 185px;
     min-height: 420px;  
     padding: 60px 5px 40px 10px;
-    background-color: rgb(41, 41, 41);
+    background-color: #3b4252;
     float: left;
 }
 
@@ -52,10 +53,11 @@ aside li > a{
     display: block;
     padding: 15px;
     color: white;
+    border-radius: 5px;
 }
 
 aside li > a:hover{
-    background-color: rgb(56, 56, 56);
+    background-color: #434c5e;
 }
 
 section{
@@ -68,5 +70,5 @@ section{
 footer{
     width: 1200px;
     min-height: 87px;   
-    background-color: rgb(26, 26, 26);   
+    background-color: #2e3440;   
 }

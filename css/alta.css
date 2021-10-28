@@ -5,10 +5,11 @@ form{
     width: 450px;
     margin: 40px auto;
     padding: 20px;
-    background-color: rgb(51, 51, 51);
+    background-color: rgb(241, 241, 241);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 20px;
 }
 
 form > div{
@@ -17,10 +18,23 @@ form > div{
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    color: white;
 }
 
-/* BOTONES */
+/* LABEL */
+label{
+    margin-top: 5px;
+}
+
+/* INPUT */
+input[type=text]{
+    outline: none;
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/* BUTTON */
 #botones{
     justify-content: right;
 }
@@ -29,7 +43,9 @@ form > div{
     margin: 5px;
     padding: 10px;
     color: white;
-    background-color: rgb(29, 29, 29);
+    background-color: #2e3440;
+    border-radius: 5px;
+    border: none;
     cursor: pointer;
 }
 

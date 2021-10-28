@@ -3,7 +3,7 @@
     //IMPORTACIONES
     require_once 'gestionbd.php';
 
-    class Empleado extends GestionBD{
+    class Empleado{
 
         //ATRIBUTOS
         private $bd = null;
