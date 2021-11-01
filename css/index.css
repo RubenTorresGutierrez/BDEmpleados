@@ -7,8 +7,10 @@ section{
 
 /***** TABLE *****/
 table{
-    width: 700px;
-    margin: 40px auto;
+    /* width: 700px; */
+    width: 77.777777778%; /* respecto al width del section (su caja contenedora) */
+    /* margin: 40px auto; */
+    margin: 2.5em auto;
     border-collapse: collapse;
     text-align: center;
     background-color: rgb(241, 241, 241);
@@ -29,11 +31,13 @@ table tr{
 
 table tr > th,
 table tr > td{
-    padding: 15px 10px;
+    /* padding: 15px 10px; */ 
+    padding: 0.9375em 0.735294118%; /* respecto al width del html */
 }
 
 .iconos{
     width: 40px;
+    /* width: %; */
     transition: ease-in 200ms;
 }
 
@@ -55,27 +59,32 @@ section > a:hover{
 
 section > a > img{
     width: 40px;
+    /* width: %; */
     margin: 0 10px 0 0;
     float: left;
 }
 
 section > a > h3{
-    margin: 10px 0 0;
+    /* margin: 10px 0 0; */
+    margin: 0.625em 0 0;
     float: left;
     color: white;
 }
 
 /***** BUSCAR *****/
 form{
-    max-width: 450px;
-    margin: 20px auto;
+    /* width: 450px; */
+    width: 50%; /* respecto al width del section (su caja contenedora) */
+    /* margin: 20px auto; */
+    margin: 1.25em auto;
     display: flex;
     position: relative;
 }
 
 form > div:first-child{
+    /* width: 115px; */
+    width: 25.555555556%; /* respecto al width del form (su caja contenedora) */
     background-color: #2e3440;
-    padding-right: 30px;
     border-radius: 10px;
     position: absolute;
     left: 0;
@@ -87,33 +96,41 @@ form > div > select{
     background-color: #2e3440;
     color: white;
     height: 100%;
-    padding: 10px;
-    margin: 0 10px;
+    /* padding: 10px; */
+    padding: 8.695652174%; /* respecto al width del div (su caja contenedora) */
+    /* margin: 0 10px; */
+    margin: 0 8.695652174%; /* respecto al width del div (su caja contenedora) */
     border-radius: 10px;
     border: none;
 }
 
 form > div:last-child{
+    /* width: 322px; */
+    width: 71.555555556%; /* respecto al width del form (su caja contenedora) */
+    /* width: 71.222222223%; */ /* Al tener borde y pasarlo a % no le pueden quedar decimales, entoces se redondea el borde y lo que le hayamos sumado al borde para redondearlo, se le resta al width */
     display: flex;
     position: relative;
+    /* padding: 5px 10px; */
+    padding: 0.3125em 2.222222222%; /* respecto al width del form (su caja contenedora) */
+    /* margin-left: 100px; */
+    margin-left: 22.222222222%; /* respecto al width del form (su caja contenedora) */
     background-color: white;
-    width: 100%;
-    padding: 5px 10px;
-    margin-left: 100px;
-    border-radius: 10px;
     border: 3px solid #2e3440;
+    /* border: 1% solid #2e3440; */
+    border-radius: 10px;
     z-index: 1;
 }
 
 form > div > img{
-    width: 25px;
+    /* width: 25px; */
+    width: 7.763975155%; /* respecto al width del div (su caja contenedora) */
 }
 
 form > div > input[type=text]{
     outline: none;
     border: none;
-    margin: 0 10px;
-    font-size: 15px;
+    /* margin: 0 10px; */
+    margin: 0 3.105590062%; /* respecto al width del div (su caja contenedora) */
 }
 
 form > div > input[type=submit]{
@@ -122,7 +139,8 @@ form > div > input[type=submit]{
     right: 0;
     bottom: 0;    
     border-radius: 7px;
-    padding: 0 10px;
+    /* margin: 0 10px; */
+    padding: 0 3.105590062%; /* respecto al width del div (su caja contenedora) */
     outline: none;
     border: none;
     cursor: pointer;

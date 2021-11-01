@@ -10,10 +10,18 @@
     font-family: 'Arial';
 }
 
-body{
-    width: 1200px;
-    min-height: 747px;
+html{
+    width: 1360px;
     margin: auto;
+}
+
+body{
+    /* width: 1200px; */
+    width: 88.23529411764706%; /* respecto al width del html (su caja contenedora) */
+    /* min-height: 747px; */
+    min-height: 46.6875em;
+    margin: auto;
+    font-size: 16px;
 }
 
 h1{
@@ -23,15 +31,18 @@ h1{
 
 /***** LAYOUT *****/
 header{
-    width: 1200px;
-    min-height: 70px;
+    /* width: 1200px; */
+    width: 100%; /* respecto al width del body (su caja contenedora) */
+    /* min-height: 70px; */
+    min-height: 4.375em;
     background-color: #3b4252; 
 }
 
 nav{
-    width: 1200px;
-    min-height: 70px;
-    border-radius: 20px;  
+    /* width: 1200px; */
+    width: 100%; /* respecto al width del body (su caja contenedora) */
+    /* min-height: 70px; */
+    min-height: 4.375em;
     background-color: #2e3440; 
 }
 
@@ -42,16 +53,20 @@ main{
 
 /*** ASIDE ***/
 aside{
-    width: 185px;
-    min-height: 420px;  
-    padding: 60px 5px 40px 10px;
+    /* width: 185px; */
+    width: 15.416666667%; /* respecto al width del body (su caja contenedora) */
+    /* min-height: 520px; */
+    min-height: 26.25em;
+    /* padding: 60px 5px 40px 10px; */
+    padding: 3.75em 0.416666667% 2.5em 0.833333333%; /* respecto al width del body (su caja contenedora) */
     background-color: #3b4252;
     float: left;
 }
 
 aside li > a{
     display: block;
-    padding: 15px;
+    /* padding: 15px; */
+    padding: 8.108108108%; /* respecto al width del aside */
     color: white;
     border-radius: 5px;
 }
@@ -61,14 +76,19 @@ aside li > a:hover{
 }
 
 section{
-    width: 900px;
-    min-height: 420px;  
-    padding: 40px 50px 60px;   
+    /* width: 900px; */
+    width: 75%; /* respecto al width del body (su caja contenedora) */
+    /* min-height: 520px; */
+    min-height: 26.25em;  
+    /* padding: 40px 50px 60px; */
+    padding: 2.5em 4.166666667% 3.75em; /* respecto al width del body (su caja contenedora) */
     float: left;
 }
 
 footer{
-    width: 1200px;
-    min-height: 87px;   
+    /* width: 1200px; */
+    width: 100%; /* respecto al width del body (su caja contenedora) */
+    /* min-height: 87px; */
+    min-height: 5.4375em;   
     background-color: #2e3440;   
 }
