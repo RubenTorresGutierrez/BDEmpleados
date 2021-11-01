@@ -2,9 +2,12 @@
 
 /***** FORMULARIO *****/
 form{
-    width: 450px;
-    margin: 40px auto;
-    padding: 20px;
+    /* width: 410px; */
+    width: 45.555555556%; /* respecto al width del section (su caja contenedora) */
+    /* margin: 40px auto; */
+    margin: 2.5em auto;
+    /* padding: 20px; */
+    padding: 2.222222222%; /* respecto al width del section */
     background-color: rgb(241, 241, 241);
     display: flex;
     flex-direction: column;
@@ -13,23 +16,27 @@ form{
 }
 
 form > div{
-    width: 70%;
+    /* width: 290px; */
+    width: 70.731707317%; /* respecto al width del form (su caja contenedora) */
     margin: auto;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    /* padding: 10px; */
+    padding: 2.43902439%; /* respecto al width del form (su caja contenedora) */
 }
 
 /* LABEL */
 label{
-    margin-top: 5px;
+    margin-top: 0.3125em;
 }
 
 /* INPUT */
 input[type=text]{
     outline: none;
-    padding: 5px;
+    /* padding: 5px; */
+    padding: 1.724137931%; /* respecto al width del div (su caja contenedora) */
     border: 2px solid #ccc;
+    /* border: 1% solid #ccc; */ /* respecto al width del div (su caja contenedora) */
     border-radius: 5px;
 }
 
@@ -40,8 +47,10 @@ input[type=text]{
 }
 
 #botones > input{
-    margin: 5px;
-    padding: 10px;
+    /* margin: 5px; */
+    margin: 1.724137931%; /* respecto al width del div (su caja contenedora) */
+    /* padding: 10px; */
+    padding: 3.448275862%; /* respecto al width del div (su caja contenedora) */
     color: white;
     background-color: #2e3440;
     border-radius: 5px;

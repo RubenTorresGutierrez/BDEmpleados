@@ -116,7 +116,7 @@ form > div:last-child{
     margin-left: 22.222222222%; /* respecto al width del form (su caja contenedora) */
     background-color: white;
     border: 3px solid #2e3440;
-    /* border: 1% solid #2e3440; */
+    /* border: 1% solid #2e3440; */ /* respecto al width del form (su caja contenedora) */
     border-radius: 10px;
     z-index: 1;
 }
