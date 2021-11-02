@@ -7,34 +7,39 @@ section{
 /***** FORM *****/
 form{
     position: absolute;
+    /* width: 260px; */
+    width: 26%; /* Respecto al ancho total del section (su caja contenedora) */
+    /* height: 150px; */
+    height: 9.375em;
+    /* padding: 40px; */
+    padding: 4%; /* Respecto al ancho total del section (su caja contenedora) */
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
     margin: auto;
-    width: 300px;
-    height: 150px;
-    background-color: rgb(241, 241, 241);
-    padding: 40px;
     display: flex;
     flex-direction: column;
+    background-color: rgb(241, 241, 241);
     border-radius: 20px;
 }
 
 form > legend{
     font-weight: bold;
-    padding: 10px 0;
+    padding: 0.625em 0;
 }
 
 #botones{
     display: flex;
     justify-content: right;
-    padding: 20px 0 0 0;
+    padding: 1.25em 0 0 0;
 }
 
 #botones > input{
-    margin: 5px;
-    padding: 10px;
+    /* margin: 5px; */
+    margin: 1.923076923%; /*  Respecto al width del div (su caja contenedora)*/
+    /* padding: 10px; */
+    padding: 3.846153846%; /*  Respecto al width del div (su caja contenedora)*/
     color: white;
     background-color: #2e3440;
     border-radius: 5px;

@@ -6,15 +6,19 @@ section{
 }
 
 img{
-    width: 300px;
+    /* width: 300px; */
+    width: 33.333333333%; /* Respecto al width del section (su caja contenedora) */
     margin: auto;
 }
 
 section > a{
     display: block;
-    margin: 30px auto 0;
-    padding: 5px 0;
-    border-bottom: 2px solid #b3b8c4;
+    /* margin: 30px auto 0; */
+    margin: 1.875em auto 0;
+    /* padding: 5px 0; */
+    padding: 0.3125em 0;
+    /* border-bottom: 2px solid #b3b8c4; */
+    border-bottom: 0.125em solid #b3b8c4;
     color: #b3b8c4;
 }
 
