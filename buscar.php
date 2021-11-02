@@ -7,41 +7,10 @@
     function buscar(){
 
         if(isset($_POST['buscar'])){
-            $empleado = new Empleado();
 
-            //Mandar la consulta a la Base de Datos
-            $resultado = $empleado->buscarEmpleado($_POST['campo'], $_POST['dato']);
+            $empleado = new Empleado();
+            $empleado->buscarEmpleado($_POST['campo'], $_POST['dato']);
             
-            //Si se encuentran resultados, se crean tantas filas en la tabla HTML
-            //como filas en la tabla de la base de datos hayan coincidido con la búsqueda
-            echo '<table>'.
-                    '<tr>'.
-                        '<th>DNI</th>'.
-                        '<th>Nombre</th>'.
-                        '<th>Correo</th>'.
-                        '<th>Teléfono</th>'.
-                        '<th>Modificar</th>'.
-                        '<th>Borrar</th>'.
-                    '</tr>';
-            if ($resultado->num_rows > 0) {
-                while ($fila = $resultado->fetch_array()) {
-                    echo '<tr>'.
-                            '<td>' . $fila['dni'] . '</td>'.
-                            '<td>' . $fila['nombre'] . '</td>'.
-                            '<td>' . $fila['correo'] . '</td>'.
-                            '<td>' . $fila['telefono'] . '</td>'.
-                            '<td><a href="decision.php?op=m&id='.$fila['idEmpleado'].'"><img src="img/icons/modificar.png" alt="Modificar Empleado" class="iconos" /></a></td>'.
-                            '<td><a href="decision.php?op=b&id='.$fila['idEmpleado'].'"><img src="img/icons/borrar.png" alt="Borrar Empleado" class="iconos" /></a></td>'.
-                        '</tr>';
-                }
-            }else{
-                echo '<tr>'.
-                        '<td colspan="6">'.
-                            '<h1>No hay empleados</h1>'.
-                        '</td>'.
-                    '</tr>';
-            }
-            echo '</table>';
         }
 
     }

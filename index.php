@@ -4,9 +4,9 @@
     require_once 'clases/empleado.php';
     require_once 'elementoshtml.php';
 
+    //OBJETOS
     $empleado = new Empleado();
-    $resultado = $empleado->mostrarEmpleados();
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -48,25 +48,8 @@
                         <th>Borrar</th>
                     </tr>
                     <?php
-
-                        if ($resultado->num_rows > 0) {
-                            while ($fila = $resultado->fetch_array()) {
-                                echo '<tr>'.
-                                        '<td>' . $fila['dni'] . '</td>'.
-                                        '<td>' . $fila['nombre'] . '</td>'.
-                                        '<td>' . $fila['correo'] . '</td>'.
-                                        '<td>' . $fila['telefono'] . '</td>'.
-                                        '<td><a href="decision.php?op=m&id='.$fila['idEmpleado'].'"><img src="img/icons/modificar.png" alt="Modificar Empleado" class="iconos" /></a></td>'.
-                                        '<td><a href="decision.php?op=b&id='.$fila['idEmpleado'].'"><img src="img/icons/borrar.png" alt="Borrar Empleado" class="iconos" /></a></td>'.
-                                    '</tr>';
-                            }
-                        }else{
-                            echo '<tr>'.
-                                    '<td colspan="6">'.
-                                        '<h1>No hay empleados</h1>'.
-                                    '</td>'.
-                                '</tr>';
-                        }
+                        
+                        $empleado->mostrarEmpleados();
 
                     ?>
                 </table>

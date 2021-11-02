@@ -7,18 +7,10 @@
     //Se envian los datos al método
     if (isset($_POST['enviar']))
         if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
+
             $empleado = new Empleado();
+            $empleado->altaEmpleado($_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
             
-            //Mandar la consulta a la Base de Datos
-            $resultado = $empleado->altaEmpleado($_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
-
-            //PRUEBAS
-            //var_dump($resultado);
-
-            //Enviar a página de correcto o error, depende el resultado
-            if($resultado)
-                header('location:correcto.php');
-            else header('location:error.php');
         }
 
 ?>

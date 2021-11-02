@@ -9,18 +9,12 @@
 
     if (!isset($_POST['enviar']) && !isset($_POST['cancelar'])){
         //Se recogen los datos del usuario que se va a modificar
-        $resultado = $empleado->mostrarEmpleado($_GET['id']);
-        $fila = $resultado->fetch_array();
+        $fila = $empleado->mostrarEmpleado($_GET['id']);
     }else{
         //Se envian los datos modificados al método
         if(isset($_POST['enviar']))
             if (!empty($_POST['dni']) && !empty($_POST['nombre']) && !empty($_POST['telf'])) {
-                $resultado = $empleado->modificarEmpleado($_POST['id'], $_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
-                
-                //Enviar a página de correcto o error, depende el resultado
-                if($resultado)
-                    header('location:correcto.php');
-                else header('location:error.php');
+                $empleado->modificarEmpleado($_POST['id'], $_POST['dni'], $_POST['nombre'], $_POST['correo'], $_POST['telf']);
             }
     }
 

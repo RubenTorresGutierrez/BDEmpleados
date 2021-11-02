@@ -7,13 +7,10 @@
     if(isset($_POST['aceptar']) || isset($_POST['cancelar'])){
         //Si se pulsa en aceptar se borra la fila con el id indicado
         if(isset($_POST['aceptar'])){
+            
             $empleado = new Empleado();
-
-            //Mandar la consulta a la Base de Datos
-            $resultado = $empleado->borrarEmpleado($_POST['id']);
-            if($resultado)
-                header('location:correcto.php');
-            else header('location:error.php');
+            $empleado->borrarEmpleado($_POST['id']);
+            
         }
         if(isset($_POST['cancelar']))
             header("location:index.php");

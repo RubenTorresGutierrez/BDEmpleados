@@ -1,7 +1,7 @@
 <?php
 
     //IMPORTACIONES
-    require_once 'gestionbd.php';
+    require_once 'operacionesbd.php';
 
     class Empleado{
 
@@ -10,13 +10,11 @@
 
         function __construct(){
 
-            $this->bd = new GestionBD();
+            $this->bd = new OperacionesBD();
 
         }
 
         function altaEmpleado($dni, $nombre, $correo, $telefono){
-            
-            //$bd = new GestionBD();
 
             //Validar si correo viene vacío
             if($correo != '')
@@ -28,11 +26,16 @@
             $sql =  "INSERT INTO empleado(dni, nombre, correo, telefono) ".
                 "VALUES('".$dni."', '".$nombre."', ".$correo.", '".$telefono."');";
 
-            //Mandar la consulta a la Clase GestionBD
-            return $resultado = $this->bd->consultar($sql);
+            //Mandar la consulta a la Clase OperacionesBD
+            $resultado = $this->bd->consultar($sql);
 
             //Cerrar conexión
-            //$this->bd->cerrarConexion();
+            $this->bd->cerrarConexion();
+
+            //Enviar a página de correcto o error, depende el resultado
+            if($resultado)
+                header('location:correcto.php');
+            else header('location:error.php');
 
         }
 
@@ -41,8 +44,16 @@
             //Consulta SQL para borrar una fila de la tabla empleado
             $sql = 'DELETE FROM empleado WHERE idEmpleado = '.$id.';';
             
-            //Mandar la consulta a la Base de Datos
-            return $this->bd->consultar($sql);
+            //Mandar la consulta a la Clase OperacionesBD
+            $resultado = $this->bd->consultar($sql);
+
+            //Cerrar conexión
+            $this->bd->cerrarConexion();
+
+            //Enviar a página de correcto o error, depende el resultado
+            if($resultado)
+                header('location:correcto.php');
+            else header('location:error.php');
 
         }
 
@@ -51,11 +62,43 @@
             //Consulta SQL para devolver las filas que contengan un dato parecido en el campo seleccionado
             $sql = 'SELECT * FROM empleado WHERE '.$campo.' LIKE "%'.$dato.'%";';
 
+            //Mandar la consulta a la Clase OperacionesBD
+            $resultado = $this->bd->consultar($sql);
+            
+            //Si se encuentran resultados, se crean tantas filas en la tabla HTML
+            //como filas en la tabla de la base de datos hayan coincidido con la búsqueda
+            echo '<table>'.
+                    '<tr>'.
+                        '<th>DNI</th>'.
+                        '<th>Nombre</th>'.
+                        '<th>Correo</th>'.
+                        '<th>Teléfono</th>'.
+                        '<th>Modificar</th>'.
+                        '<th>Borrar</th>'.
+                    '</tr>';
+            if ($resultado->num_rows > 0) {
+                while ($fila = $resultado->fetch_array()) {
+                    echo '<tr>'.
+                            '<td>' . $fila['dni'] . '</td>'.
+                            '<td>' . $fila['nombre'] . '</td>'.
+                            '<td>' . $fila['correo'] . '</td>'.
+                            '<td>' . $fila['telefono'] . '</td>'.
+                            '<td><a href="decision.php?op=m&id='.$fila['idEmpleado'].'"><img src="img/icons/modificar.png" alt="Modificar Empleado" class="iconos" /></a></td>'.
+                            '<td><a href="decision.php?op=b&id='.$fila['idEmpleado'].'"><img src="img/icons/borrar.png" alt="Borrar Empleado" class="iconos" /></a></td>'.
+                        '</tr>';
+                }
+            }else{
+                echo '<tr>'.
+                        '<td colspan="6">'.
+                            '<h1>No hay empleados</h1>'.
+                        '</td>'.
+                    '</tr>';
+            }
+            echo '</table>';
+
             //Cerrar conexión
-            //$this->bd->cerrarConexion();
-                 
-            //Mandar la consulta a la Clase GestionBD
-            return $this->bd->consultar($sql);
+            $this->bd->cerrarConexion();
+            
 
         }
 
@@ -64,8 +107,30 @@
             //Consulta SQL para devolver todas las filas de la tabla empleado
             $sql = 'SELECT * FROM empleado;';
 
-            //Mandar la consulta a la Base de Datos
-            return $this->bd->consultar($sql);
+            //Mandar la consulta a la Clase OperacionesBD
+            $this->bd->consultar($sql);
+
+            if ($this->bd->numeroFilas() > 0) {
+                while ($fila = $this->bd->extraerFila()) {
+                    echo '<tr>'.
+                            '<td>' . $fila['dni'] . '</td>'.
+                            '<td>' . $fila['nombre'] . '</td>'.
+                            '<td>' . $fila['correo'] . '</td>'.
+                            '<td>' . $fila['telefono'] . '</td>'.
+                            '<td><a href="decision.php?op=m&id='.$fila['idEmpleado'].'"><img src="img/icons/modificar.png" alt="Modificar Empleado" class="iconos" /></a></td>'.
+                            '<td><a href="decision.php?op=b&id='.$fila['idEmpleado'].'"><img src="img/icons/borrar.png" alt="Borrar Empleado" class="iconos" /></a></td>'.
+                        '</tr>';
+                }
+            }else{
+                echo '<tr>'.
+                        '<td colspan="6">'.
+                            '<h1>No hay empleados</h1>'.
+                        '</td>'.
+                    '</tr>';
+            }
+
+            //Cerrar conexión
+            $this->bd->cerrarConexion();
 
         }
 
@@ -74,8 +139,13 @@
             //Consulta SQL para devolver una fila de la tabla empleado
             $sql = 'SELECT * FROM empleado WHERE idEmpleado = '.$id.';';
 
-            //Mandar la consulta a la Base de Datos
-            return $this->bd->consultar($sql);
+            //Mandar la consulta a la Clase OperacionesBD
+            $resultado = $this->bd->consultar($sql);
+
+            //Cerrar conexión
+            $this->bd->cerrarConexion();
+
+            return $resultado->fetch_array();
 
         }
 
@@ -91,8 +161,16 @@
             $sql = "UPDATE empleado SET dni = '".$dni."', nombre = '".$nombre."', ".
             "correo = ".$correo.", telefono = '".$telefono."' WHERE idEmpleado = ".$id.";";
 
-            //Mandar la consulta a la Base de Datos
-            return $resultado = $this->bd->consultar($sql);
+            //Mandar la consulta a la Clase OperacionesBD
+            $resultado = $this->bd->consultar($sql);
+
+            //Cerrar conexión
+            $this->bd->cerrarConexion();
+                
+            //Enviar a página de correcto o error, depende el resultado
+            if($resultado)
+                header('location:correcto.php');
+            else header('location:error.php');
 
         }
 

@@ -3,10 +3,11 @@
     //IMPORTACIONES
     require_once 'config/configdb.php';
 
-    class GestionBD{
+    class OperacionesBD{
 
         //ATRIBUTOS
         private $conexion = null;
+        private $resultado = null;
 
         function __construct(){
 
@@ -19,8 +20,26 @@
 
         function consultar($sql){
 
-            return $this->conexion->query($sql);
+            return $this->resultado = $this->conexion->query($sql);
 
+        }
+
+        function extraerFila(){
+
+            return $this->resultado->fetch_array();
+
+        }
+
+        function numeroFilas(){
+
+            return $this->resultado->num_rows;
+
+        }
+
+        function filasAfectadas(){
+
+
+            
         }
 
         function cerrarConexion(){
