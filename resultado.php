@@ -43,7 +43,10 @@
                         echo '<img src="img/icons/error.png" alt="ERROR" />';
                         switch($_GET['errno']){
                             case '1062':
-                                echo '<h1>El DNI introducido ya existe.</h1>';
+                                echo '<h1>El DNI introducido ya existe</h1>';
+                                break;
+                            default:
+                                echo '<h1>Ha ocurrido un error inesperado</h1>';
                                 break;
                         }
                     }
