@@ -9,7 +9,15 @@
         if(isset($_POST['buscar'])){
 
             $empleado = new Empleado();
-            $empleado->buscarEmpleado($_POST['campo'], $_POST['dato']);
+            // $empleado->buscarEmpleado($_POST['campo'], $_POST['dato']);
+            switch($_POST['campo']){
+                case 'dni':
+                    $empleado->buscarDni($_POST['dato']);
+                    break;
+                case 'nombre':
+                    $empleado->buscarNombre($_POST['dato']);
+                    break;
+            }
             
         }
 

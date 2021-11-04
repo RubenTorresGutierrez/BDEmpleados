@@ -26,7 +26,7 @@
 
         function extraerFila(){
 
-            return $this->resultado->fetch_array();
+            return $this->resultado->fetch_array(MYSQLI_ASSOC);
 
         }
 

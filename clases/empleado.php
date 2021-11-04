@@ -35,7 +35,7 @@
             //Enviar a página de correcto o error, depende el resultado
             if($resultado)
                 header('location:correcto.php');
-            else header('location:error.php');
+            else header('location:error.php?er:'.bd->error);
 
         }
 
@@ -57,15 +57,60 @@
 
         }
 
-        function buscarEmpleado($campo, $dato){
+        // function buscarEmpleado($campo, $dato){
+
+        //     //Consulta SQL para devolver las filas que contengan un dato parecido en el campo seleccionado
+        //     if($campo != 'nombre')
+        //         $sql = 'SELECT * FROM empleado WHERE '.$campo.' = '.$dato.';';
+        //     else $sql = 'SELECT * FROM empleado WHERE '.$campo.' LIKE "%'.$dato.'%";';
+
+        //     //Mandar la consulta a la Clase OperacionesBD
+        //     $this->bd->consultar($sql);
+            
+        //     //Si se encuentran resultados, se crean tantas filas en la tabla HTML
+        //     //como filas en la tabla de la base de datos hayan coincidido con la búsqueda
+        //     echo '<table>'.
+        //             '<tr>'.
+        //                 '<th>DNI</th>'.
+        //                 '<th>Nombre</th>'.
+        //                 '<th>Correo</th>'.
+        //                 '<th>Teléfono</th>'.
+        //                 '<th>Modificar</th>'.
+        //                 '<th>Borrar</th>'.
+        //             '</tr>';
+        //     if ($this->bd->numeroFilas() > 0) {
+        //         while ($fila = $this->bd->extraerFila()) {
+        //             echo '<tr>'.
+        //                     '<td>' . $fila['dni'] . '</td>'.
+        //                     '<td>' . $fila['nombre'] . '</td>'.
+        //                     '<td>' . $fila['correo'] . '</td>'.
+        //                     '<td>' . $fila['telefono'] . '</td>'.
+        //                     '<td><a href="decision.php?op=m&id='.$fila['idEmpleado'].'"><img src="img/icons/modificar.png" alt="Modificar Empleado" class="iconos" /></a></td>'.
+        //                     '<td><a href="decision.php?op=b&id='.$fila['idEmpleado'].'"><img src="img/icons/borrar.png" alt="Borrar Empleado" class="iconos" /></a></td>'.
+        //                 '</tr>';
+        //         }
+        //     }else{
+        //         echo '<tr>'.
+        //                 '<td colspan="6">'.
+        //                 '<h1>No se han encontrado empleados con '. $campo .': "'. $dato .'"</h1>'.
+        //                 '</td>'.
+        //             '</tr>';
+        //     }
+        //     echo '</table>';
+
+        //     //Cerrar conexión
+        //     $this->bd->cerrarConexion();
+            
+
+        // }
+
+        function buscarDni($dato){
 
             //Consulta SQL para devolver las filas que contengan un dato parecido en el campo seleccionado
-            if($campo != 'nombre')
-                $sql = 'SELECT * FROM empleado WHERE '.$campo.' = '.$dato.';';
-            else $sql = 'SELECT * FROM empleado WHERE '.$campo.' LIKE "%'.$dato.'%";';
+            $sql = 'SELECT * FROM empleado WHERE dni = "'.$dato.'";';
 
             //Mandar la consulta a la Clase OperacionesBD
-            $resultado = $this->bd->consultar($sql);
+            $this->bd->consultar($sql);
             
             //Si se encuentran resultados, se crean tantas filas en la tabla HTML
             //como filas en la tabla de la base de datos hayan coincidido con la búsqueda
@@ -78,8 +123,51 @@
                         '<th>Modificar</th>'.
                         '<th>Borrar</th>'.
                     '</tr>';
-            if ($resultado->num_rows > 0) {
-                while ($fila = $resultado->fetch_array()) {
+            if ($fila = $this->bd->extraerFila()) {
+                echo '<tr>'.
+                        '<td>' . $fila['dni'] . '</td>'.
+                        '<td>' . $fila['nombre'] . '</td>'.
+                        '<td>' . $fila['correo'] . '</td>'.
+                        '<td>' . $fila['telefono'] . '</td>'.
+                        '<td><a href="decision.php?op=m&id='.$fila['idEmpleado'].'"><img src="img/icons/modificar.png" alt="Modificar Empleado" class="iconos" /></a></td>'.
+                        '<td><a href="decision.php?op=b&id='.$fila['idEmpleado'].'"><img src="img/icons/borrar.png" alt="Borrar Empleado" class="iconos" /></a></td>'.
+                    '</tr>';
+            }else{
+                echo '<tr>'.
+                        '<td colspan="6">'.
+                        '<h1>No se han encontrado empleados con dni: "'. $dato .'"</h1>'.
+                        '</td>'.
+                    '</tr>';
+            }
+            echo '</table>';
+
+            //Cerrar conexión
+            $this->bd->cerrarConexion();
+               
+
+        }
+
+        function buscarNombre($dato){
+
+            //Consulta SQL para devolver las filas que contengan un dato parecido en el campo seleccionado
+            $sql = 'SELECT * FROM empleado WHERE nombre LIKE "%'.$dato.'%";';
+
+            //Mandar la consulta a la Clase OperacionesBD
+            $this->bd->consultar($sql);
+            
+            //Si se encuentran resultados, se crean tantas filas en la tabla HTML
+            //como filas en la tabla de la base de datos hayan coincidido con la búsqueda
+            echo '<table>'.
+                    '<tr>'.
+                        '<th>DNI</th>'.
+                        '<th>Nombre</th>'.
+                        '<th>Correo</th>'.
+                        '<th>Teléfono</th>'.
+                        '<th>Modificar</th>'.
+                        '<th>Borrar</th>'.
+                    '</tr>';
+            if ($this->bd->numeroFilas() > 0) {
+                while ($fila = $this->bd->extraerFila()) {
                     echo '<tr>'.
                             '<td>' . $fila['dni'] . '</td>'.
                             '<td>' . $fila['nombre'] . '</td>'.
@@ -92,7 +180,7 @@
             }else{
                 echo '<tr>'.
                         '<td colspan="6">'.
-                            '<h1>No hay empleados</h1>'.
+                        '<h1>No se han encontrado empleados con nombre: "'. $dato .'"</h1>'.
                         '</td>'.
                     '</tr>';
             }
