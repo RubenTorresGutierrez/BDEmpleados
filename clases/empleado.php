@@ -29,13 +29,16 @@
             //Mandar la consulta a la Clase OperacionesBD
             $resultado = $this->bd->consultar($sql);
 
+            //Se asigna el número de error para después enviarlo por url
+            $errno = $this->bd->codigoError();
+
             //Cerrar conexión
             $this->bd->cerrarConexion();
 
             //Enviar a página de correcto o error, depende el resultado
             if($resultado)
-                header('location:correcto.php');
-            else header('location:error.php?er:'.bd->error);
+                header('location:resultado.php?result=ok');
+            else header('location:resultado.php?result=err&errno='.$errno);
 
         }
 
@@ -61,7 +64,7 @@
 
         //     //Consulta SQL para devolver las filas que contengan un dato parecido en el campo seleccionado
         //     if($campo != 'nombre')
-        //         $sql = 'SELECT * FROM empleado WHERE '.$campo.' = '.$dato.';';
+        //         $sql = 'SELECT * FROM empleado WHERE '.$campo.' = "'.$dato.'";';
         //     else $sql = 'SELECT * FROM empleado WHERE '.$campo.' LIKE "%'.$dato.'%";';
 
         //     //Mandar la consulta a la Clase OperacionesBD
@@ -100,7 +103,6 @@
 
         //     //Cerrar conexión
         //     $this->bd->cerrarConexion();
-            
 
         // }
 
@@ -143,7 +145,6 @@
 
             //Cerrar conexión
             $this->bd->cerrarConexion();
-               
 
         }
 
@@ -188,7 +189,6 @@
 
             //Cerrar conexión
             $this->bd->cerrarConexion();
-            
 
         }
 
@@ -254,13 +254,16 @@
             //Mandar la consulta a la Clase OperacionesBD
             $resultado = $this->bd->consultar($sql);
 
+            //Se asigna el número de error para después enviarlo por url
+            $errno = $this->bd->codigoError();
+
             //Cerrar conexión
             $this->bd->cerrarConexion();
-                
+
             //Enviar a página de correcto o error, depende el resultado
             if($resultado)
-                header('location:correcto.php');
-            else header('location:error.php');
+                header('location:resultado.php?result=ok');
+            else header('location:resultado.php?result=err&errno='.$errno);
 
         }
 

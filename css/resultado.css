@@ -22,12 +22,12 @@ section > a{
     color: #b3b8c4;
 }
 
-#correcto:hover{
+#ok:hover{
     border-bottom-color: #B0FF48;
     color: #B0FF48;
 }
 
-#error:hover{
+#err:hover{
     border-bottom-color: #DA2727;
     color: #DA2727;
 }
