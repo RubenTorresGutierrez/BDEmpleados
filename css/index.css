@@ -16,11 +16,13 @@ table{
     background-color: rgb(241, 241, 241);
 }
 
+/*** CABECERA ***/
 table tr:first-child{
     background-color: #2e3440;
     color: white;
 }
 
+/*** CONTENIDO ***/
 table tr:nth-child(2n){
     background-color: #b5bbc5;
 }
@@ -35,9 +37,10 @@ table tr > td{
     padding: 0.9375em 0.735294118%; /* respecto al width del html */
 }
 
+/** ICONOS **/
 .iconos{
-    width: 40px;
-    /* width: %; */
+    /* width: 40px; */
+    width: 2.5em;
     transition: ease-in 200ms;
 }
 
@@ -58,8 +61,8 @@ section > a:hover{
 }
 
 section > a > img{
-    width: 40px;
-    /* width: %; */
+    /* width: 40px; */
+    width: 2.5em;
     margin: 0 10px 0 0;
     float: left;
 }
@@ -72,6 +75,7 @@ section > a > h3{
 }
 
 /***** BUSCAR *****/
+/*** FORM ***/
 form{
     /* width: 450px; */
     width: 50%; /* respecto al width del section (su caja contenedora) */
@@ -81,6 +85,7 @@ form{
     position: relative;
 }
 
+/*** SELECT ***/
 form > div:first-child{
     /* width: 115px; */
     width: 25.555555556%; /* respecto al width del form (su caja contenedora) */
@@ -104,6 +109,7 @@ form > div > select{
     border: none;
 }
 
+/*** BUSCADOR ***/
 form > div:last-child{
     /* width: 322px; */
     width: 71.555555556%; /* respecto al width del form (su caja contenedora) */
@@ -121,11 +127,13 @@ form > div:last-child{
     z-index: 1;
 }
 
+/** LUPA **/
 form > div > img{
     /* width: 25px; */
-    width: 7.763975155%; /* respecto al width del div (su caja contenedora) */
+    width: 1.5625em;
 }
 
+/** INPUT **/
 form > div > input[type=text]{
     outline: none;
     border: none;
@@ -133,6 +141,7 @@ form > div > input[type=text]{
     margin: 0 3.105590062%; /* respecto al width del div (su caja contenedora) */
 }
 
+/** BOTÓN BUSCAR **/
 form > div > input[type=submit]{
     position: absolute;
     top: 0;
@@ -148,4 +157,10 @@ form > div > input[type=submit]{
 
 form > div > input[type=submit]:hover{
     background-color: #adc0e9;
+}
+
+@media screen and (max-width: 650px) {
+    table{
+        /* width: 90%; */
+    }
 }

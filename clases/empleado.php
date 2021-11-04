@@ -60,7 +60,9 @@
         function buscarEmpleado($campo, $dato){
 
             //Consulta SQL para devolver las filas que contengan un dato parecido en el campo seleccionado
-            $sql = 'SELECT * FROM empleado WHERE '.$campo.' LIKE "%'.$dato.'%";';
+            if($campo != 'nombre')
+                $sql = 'SELECT * FROM empleado WHERE '.$campo.' = '.$dato.';';
+            else $sql = 'SELECT * FROM empleado WHERE '.$campo.' LIKE "%'.$dato.'%";';
 
             //Mandar la consulta a la Clase OperacionesBD
             $resultado = $this->bd->consultar($sql);

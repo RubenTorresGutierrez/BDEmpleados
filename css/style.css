@@ -10,10 +10,10 @@
     font-family: 'Arial';
 }
 
-html{
+/* html{
     width: 1360px;
     margin: auto;
-}
+} */
 
 body{
     /* width: 1200px; */
@@ -91,4 +91,22 @@ footer{
     /* min-height: 87px; */
     min-height: 5.4375em;   
     background-color: #2e3440;   
+}
+
+@media screen and (max-width: 650px) {
+    body{
+        font-size: 10px;
+    }
+    aside{
+        width: 98.75%;
+        min-height: auto;
+    }
+    section{
+        width: 95.833333333%;
+        min-height: auto;
+    }
+    aside > ul{
+        display: flex;
+        justify-content: space-around;
+    }
 }
