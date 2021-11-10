@@ -56,16 +56,14 @@
                 <h1>BUSCAR</h1>
                 <!-- BUSCADOR -->
                 <form action="buscar.php" method="post">
+                    <select name="campo">
+                        <option value="dni">DNI</option>
+                        <option value="nombre">Nombre</option>
+                        <option value="correo">Correo</option>
+                        <option value="telefono">Teléfono</option>
+                    </select>
                     <div>
-                        <select name="campo">
-                            <option value="dni">DNI</option>
-                            <option value="nombre">Nombre</option>
-                            <option value="correo">Correo</option>
-                            <option value="telefono">Teléfono</option>
-                        </select>
-                    </div>
-                    <div>
-                        <img src="img/icons/lupa.png" alt="Lupa" />
+                        <i class="fa fa-search fa-2x" aria-hidden="true"></i>
                         <input type="text" name="dato" placeholder="Buscar..." />
                         <input type="submit" value="BUSCAR" name="buscar" />
                     </div>

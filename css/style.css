@@ -35,7 +35,7 @@ header{
     width: 100%; /* respecto al width del body (su caja contenedora) */
     /* min-height: 70px; */
     min-height: 4.375em;
-    background-color: #3b4252; 
+    background-color: #3b4252;
 }
 
 nav{
@@ -90,11 +90,12 @@ footer{
     width: 100%; /* respecto al width del body (su caja contenedora) */
     /* min-height: 87px; */
     min-height: 5.4375em;   
-    background-color: #2e3440;   
+    background-color: #2e3440;
 }
 
 @media screen and (max-width: 650px) {
     body{
+        width: 100%;
         font-size: 10px;
     }
     aside{
@@ -102,7 +103,7 @@ footer{
         min-height: auto;
     }
     section{
-        width: 95.833333333%;
+        width: 91.666666666%; /* 100% - 4.166666667%(padding) * 2 */
         min-height: auto;
     }
     aside > ul{

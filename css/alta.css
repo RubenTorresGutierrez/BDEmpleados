@@ -18,11 +18,11 @@ form{
 form > div{
     /* width: 290px; */
     width: 70.731707317%; /* respecto al width del form (su caja contenedora) */
+    /* padding: 10px; */
+    padding: 2.43902439%; /* respecto al width del form (su caja contenedora) */
     margin: auto;
     display: flex;
     justify-content: space-between;
-    /* padding: 10px; */
-    padding: 2.43902439%; /* respecto al width del form (su caja contenedora) */
 }
 
 /* LABEL */
@@ -32,14 +32,13 @@ label{
 
 /* INPUT */
 input[type=text]{
-    outline: none;
     /* padding: 5px; */
     padding: 1.724137931%; /* respecto al width del div (su caja contenedora) */
     border: 2px solid #ccc;
     /* border: 1% solid #ccc; */ /* respecto al width del div (su caja contenedora) */
     border-radius: 5px;
+    outline: none;
 }
-
 
 /* BUTTON */
 #botones{
@@ -51,9 +50,9 @@ input[type=text]{
     margin: 1.724137931%; /* respecto al width del div (su caja contenedora) */
     /* padding: 10px; */
     padding: 3.448275862%; /* respecto al width del div (su caja contenedora) */
-    color: white;
-    background-color: #2e3440;
     border-radius: 5px;
+    background-color: #2e3440;
+    color: white;
     border: none;
     cursor: pointer;
 }

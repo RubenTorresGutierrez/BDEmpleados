@@ -47,24 +47,40 @@
                 <!-- FORMULARIO DE ALTA A EMPLEADO -->
                 <form action="alta.php" method="post">
                     <!-- DNI -->
-                    <div>
-                        <label for="dni">DNI: </label>
-                        <input type="text" name="dni" required />
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="dni">DNI: </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="dni" required />
+                        </div>
                     </div>
                     <!-- NOMBRE -->
-                    <div>
-                        <label for="nombre">Nombre: </label>
-                        <input type="text" name="nombre" required />
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="nombre">Nombre: </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="nombre" required />
+                        </div>
                     </div>
                     <!-- CORREO -->
-                    <div>
-                        <label for="correo">Correo: </label>
-                        <input type="text" name="correo" />
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="correo">Correo: </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="correo" />
+                        </div>
                     </div>
                     <!-- TELÉFONO -->
-                    <div>
-                        <label for="telf">Teléfono: </label>
-                        <input type="text" name="telf" required />
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="telf">Teléfono: </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="telf" required />
+                        </div>
                     </div>
                     <!-- BOTONES -->
                     <div id="botones">
