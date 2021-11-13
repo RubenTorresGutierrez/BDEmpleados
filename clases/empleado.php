@@ -50,13 +50,16 @@
             //Mandar la consulta a la Clase OperacionesBD
             $resultado = $this->bd->consultar($sql);
 
+            //Se asigna el número de error para después enviarlo por url
+            $errno = $this->bd->codigoError();
+
             //Cerrar conexión
             $this->bd->cerrarConexion();
 
             //Enviar a página de correcto o error, depende el resultado
             if($resultado)
-                header('location:correcto.php');
-            else header('location:error.php');
+                header('location:resultado.php?result=ok');
+            else header('location:resultado.php?result=err&errno='.$errno);
 
         }
 
