@@ -52,32 +52,48 @@
                 <!-- FORMULARIO MODIFICACIÓN EMPLEADO -->
                 <form action="modificar.php" method="post">
                     <!-- DNI -->
-                    <div>
-                        <label for="dni">DNI: </label>
-                        <?php
-                            echo '<input type="text" name="dni" required value="'.$fila['dni'].'" />';
-                        ?>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="dni">DNI: </label>
+                        </div>
+                        <div class="col-75">
+                            <?php
+                                echo '<input type="text" name="dni" required value="'.$fila['dni'].'" />';
+                            ?>
+                        </div>
                     </div>
                     <!-- NOMBRE -->
-                    <div>
-                        <label for="nombre">Nombre: </label>
-                        <?php
-                            echo '<input type="text" name="nombre" required value="'.$fila['nombre'].'" />';
-                        ?>
-                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="nombre">Nombre: </label>
+                        </div>
+                        <div class="col-75">
+                            <?php
+                                echo '<input type="text" name="nombre" required value="'.$fila['nombre'].'" />';
+                            ?>
+                        </div>
+                    </div class="row">
                     <!-- CORREO -->
-                    <div>
-                        <label for="correo">Correo: </label>
-                        <?php
-                            echo '<input type="text" name="correo" value="'.$fila['correo'].'" />';
-                        ?>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="correo">Correo: </label>
+                        </div>
+                        <div class="col-75">
+                            <?php
+                                echo '<input type="text" name="correo" value="'.$fila['correo'].'" />';
+                            ?>
+                        </div>
                     </div>
                     <!-- TELÉFONO -->
-                    <div>
-                        <label for="telf">Teléfono: </label>
-                        <?php
-                            echo '<input type="text" name="telf" required value="'.$fila['telefono'].'" />';
-                        ?>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="telf">Teléfono: </label>
+                        </div>
+                        <div class="col-75">
+                            <?php
+                                echo '<input type="text" name="telf" required value="'.$fila['telefono'].'" />';
+                            ?>
+                        </div>
                     </div>
                     <?php
                         echo '<input type="hidden" name="id" value="'.$_GET['id'].'" />';

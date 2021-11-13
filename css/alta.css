@@ -15,44 +15,64 @@ form{
     border-radius: 20px;
 }
 
-form > div{
-    /* width: 290px; */
-    width: 70.731707317%; /* respecto al width del form (su caja contenedora) */
-    /* padding: 10px; */
-    padding: 2.43902439%; /* respecto al width del form (su caja contenedora) */
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
+/*** ROW ***/
+.row{
+    /* width: 390px; */
+    width: 95.12195122%; /* respecto al width del form (su caja contenedora) */
+    /* margin: 10px auto; */
+    margin: 0.625em auto;
 }
 
-/* LABEL */
+/*** COL ***/
+/* 25 */
+.col-25 {
+    /* width: 85.5px; */
+    width: 21.923076923%; /* respecto al width del div.row (su caja contenedora) */
+    /* padding: 10px 12px 12px 0; */
+    padding: 0.625em 3.076923077% 0.75em 0; /* respecto al width del div.row (su caja contenedora) */
+    float: left;
+}
+
 label{
     margin-top: 0.3125em;
 }
 
-/* INPUT */
+/* 75 */
+.col-75 {
+    /* width: 292.5px; */
+    width: 75%; /* respecto al width del div.row (su caja contenedora) */
+    /* margin-top: 6px; */
+    margin-top: 0.375em;
+    float: left;
+}
+
+/*
+    Los inputs tienen el tamaño calculado, que serían 278.5px, pero al tener 
+    un borde en px, al cambiar la resolución, los tamaños no coincidirian,
+    por ello, le he puesto box-sizing:border-box y el width al 100%
+*/
 input[type=text]{
+    /* width: 278.5px; */
+    width: 100%;
     /* padding: 5px; */
     padding: 1.724137931%; /* respecto al width del div (su caja contenedora) */
     border: 2px solid #ccc;
-    /* border: 1% solid #ccc; */ /* respecto al width del div (su caja contenedora) */
     border-radius: 5px;
     outline: none;
+    box-sizing: border-box;
 }
 
 /* BUTTON */
-#botones{
-    justify-content: right;
-}
-
 #botones > input{
     /* margin: 5px; */
     margin: 1.724137931%; /* respecto al width del div (su caja contenedora) */
     /* padding: 10px; */
-    padding: 3.448275862%; /* respecto al width del div (su caja contenedora) */
+    padding: 0.625em;
     border-radius: 5px;
+    font-size: 0.95em;
     background-color: #2e3440;
     color: white;
+    float: right;
     border: none;
     cursor: pointer;
 }
@@ -63,4 +83,13 @@ input[type=text]{
 
 #botones > input:last-child:hover{
     background-color: rgb(206, 31, 31);
+}
+
+@media screen and (max-width: 650px) {
+    form{
+        width: 90%;
+    }
+    .col-75{
+        width: 100%;
+    }
 }

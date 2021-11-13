@@ -128,17 +128,14 @@ form > div{
 .fa-search{
     /* font-size: 25px!important; */
     font-size: 1.5625em!important;
-    /* margin-right: 27px; */
+    /* margin: 5px 10px ; */
     margin: 0.3125em 2.976190476%; /* respecto al width del div (su caja contenedora) */
-    /* color: white;
-    position: absolute;
-    right: 0;
-    bottom: 20%; */
+    color: #2e3440;
 }
 
 /** INPUT **/
 form > div > input[type=text]{
-    width: 80%;
+    width: 70%;
     /* margin: 0 10px; */
     margin: 0 2.976190476%; /* respecto al width del div (su caja contenedora) */
     outline: none;
@@ -147,13 +144,14 @@ form > div > input[type=text]{
 
 /** BOTÓN BUSCAR **/
 form > div > input[type=submit]{
-    width: 20%;
+    width: 30%;
     height: 100%;
     border-radius: 7px;
     outline: none;
     border: none;
     cursor: pointer;
     background-color: #d08770;
+    color: #2e3440;
 }
 
 form > div > input[type=submit]:hover,
