@@ -46,7 +46,6 @@
 
             ?>
             <section>
-                <h1>BORRAR</h1>
                 <form action="borrar.php" method="post">
                     <legend>¡ATENCIÓN!</legend>
                     <label for="">¿Desea eliminar al<br />empleado seleccionado?</label>

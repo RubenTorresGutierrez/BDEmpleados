@@ -1,23 +1,18 @@
 /* Rubén Torres */
 
 section{
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /***** FORM *****/
 form{
-    position: absolute;
     /* width: 260px; */
-    width: 26%; /* Respecto al ancho total del section (su caja contenedora) */
-    /* height: 150px; */
-    height: 9.375em;
-    /* padding: 40px; */
-    padding: 4%; /* Respecto al ancho total del section (su caja contenedora) */
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
+    width: 28.888888889%; /* Respecto al width del section (su caja contenedora) */
+    /* padding: 25px; */
+    padding: 2.777777778%; /* Respecto al width del section (su caja contenedora) */
     display: flex;
     flex-direction: column;
     background-color: rgb(241, 241, 241);
@@ -39,10 +34,11 @@ form > legend{
     /* margin: 5px; */
     margin: 1.923076923%; /*  Respecto al width del div (su caja contenedora)*/
     /* padding: 10px; */
-    padding: 3.846153846%; /*  Respecto al width del div (su caja contenedora)*/
+    padding: 0.625em;
     color: white;
     background-color: #2e3440;
     border-radius: 5px;
+    font-size: 0.95em;
     border: none;
     cursor: pointer;
 }
@@ -53,4 +49,10 @@ form > legend{
 
 #botones > input:last-child:hover{
     background-color: rgb(31, 92, 206);
+}
+
+@media screen and (max-width: 650px) {
+    form{
+        width: 50%;
+    }
 }
